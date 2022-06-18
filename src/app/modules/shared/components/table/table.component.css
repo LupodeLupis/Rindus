@@ -1,0 +1,9 @@
+.button-open {
+    border: none;
+    background: #fff;
+}
+
+.button-open:hover:not([disabled]) {
+    font-weight: 600;
+    text-decoration: underline;
+}

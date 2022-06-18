@@ -1,12 +1,13 @@
 import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 
 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from '@angular/material/table';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { SearchInputFieldComponent } from "./components/search-input-field/search-input-field.component";
 import { TableComponent } from "./components/table/table.component";
 
@@ -15,27 +16,26 @@ import { TableComponent } from "./components/table/table.component";
     declarations: [
         SearchInputFieldComponent,
         TableComponent,
-
     ],
     imports: [
         CommonModule,
+        MatSortModule,
         MatTableModule,
-        HttpClientModule,
+        MatDialogModule,
         MatPaginatorModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule,
     ],
     exports: [
         CommonModule,
+        MatSortModule,
         MatTableModule,
         TableComponent,
-        HttpClientModule,
+        MatDialogModule,
         MatPaginatorModule,
-        BrowserAnimationsModule,
         SearchInputFieldComponent,
-    ],
+    ],      
     providers: [
 
     ],
-})
+})  
 export class SharedModule { }

@@ -1,4 +1,4 @@
-export const POSTS_TABLE_COLUMNS = ['userId', 'id', 'title', 'body'];
+export const POSTS_TABLE_COLUMNS = ['userId', 'id', 'title', 'body', 'comments'];
 
 export interface Post {
     userId: string;

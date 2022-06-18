@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PostsEndPointServiceService } from './posts-end-point-service.service';
+import { PostsEndPointServiceService } from './posts-end-point.service';
 
 describe('PostsEndPointServiceService', () => {
   let service: PostsEndPointServiceService;
