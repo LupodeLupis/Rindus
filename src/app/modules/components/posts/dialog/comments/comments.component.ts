@@ -2,10 +2,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+
 import { CommentEndPointService } from '../../../../shared/services/end-point/comment-end-point.service';
 import { Comment, COMMENTS_TABLE_COLUMNS } from '../../../../shared/models/comments'
-import { GenericButton } from 'src/app/modules/shared/models/buttons';
-import { CommonService } from 'src/app/modules/shared/services/common/common.service';
+import { GenericButton } from '../../../../shared/models/buttons';
+import { CommonService } from '../../../../shared/services/common/common.service';
 
 @Component({
     selector: 'app-comments',
@@ -18,14 +19,16 @@ export class CommentsComponent implements OnInit {
     commentsTableComuns: string[];
     closeDialogConfigButton: GenericButton;
     cancelDialogConfigButton: GenericButton;
+    filteredValue: string;
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public postId: string,
         private commonUtilitiesService: CommonService,
         private dialogRef: MatDialogRef<CommentsComponent>,
         private commentEndPointService: CommentEndPointService,
-    ) {
-        this.commentsTableComuns = COMMENTS_TABLE_COLUMNS;
+    ) { 
+        this.filteredValue = '';
+        this.commentsTableComuns = COMMENTS_TABLE_COLUMNS; 
         this.closeDialogConfigButton = this.commonUtilitiesService.initializeCloseConfigButton('Comments Table');
         this.cancelDialogConfigButton = this.commonUtilitiesService.initializeCancelConfigButton();
     }

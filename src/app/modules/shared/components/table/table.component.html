@@ -1,10 +1,10 @@
 <div class="table-container mat-elevation-z8">
     <table mat-table [dataSource]="tableDataSource" matSort>
         <ng-container *ngFor="let col of columns" [matColumnDef]="col">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ col | titlecase }}</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-headers"> {{ col | titlecase }}</th>
                 <td mat-cell *matCellDef="let row" > 
                     <ng-container *ngIf="col === 'comments'; else readOnlyCols">
-                        <button (click)="setPostId(row.id)" class="btn-open-dialog"> see comments</button>
+                        <button (click)="setPostId(row.id)" class="btn-open-dialog"> See Comments</button>
                     </ng-container>
                     <ng-template #readOnlyCols>
                         {{ row[col] }} 

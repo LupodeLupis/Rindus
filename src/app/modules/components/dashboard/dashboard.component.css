@@ -1,0 +1,32 @@
+
+.container-fluid {
+    height: 100%;
+    background-color: #4dd599;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.main-page-button-posts {
+    border: none;
+    background: #fff;
+    font-size: 16px;
+}
+
+.main-page-button-posts:hover:not([disabled]) {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.text-center {
+    background-color: #fff;
+    color: #000;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}

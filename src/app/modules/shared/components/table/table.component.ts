@@ -20,6 +20,7 @@ export class TableComponent implements OnInit, OnChanges {
 
     @Input() tableDataSource!: MatTableDataSource<any>;
     @Input() columns!: string[];
+    @Input() filteredValue!: string;
 
     @ViewChild(MatPaginator) matPaginator!: MatPaginator;
     @ViewChild(MatSort) matSort!: MatSort;
@@ -29,15 +30,17 @@ export class TableComponent implements OnInit, OnChanges {
     ) { }
 
 
-    ngOnInit(): void {
+    ngOnInit(): void {        
     }
 
     // Once the value is set on tableDataSource @Input decorator set header sorting and pagination
     ngOnChanges(simpleChange: SimpleChanges) {
+
         if (this.tableDataSource) {
             this.tableDataSource.sort = this.matSort;
             this.tableDataSource.paginator = this.matPaginator;
-        }
+            this.tableDataSource.filter = this.filteredValue.toLowerCase();
+        } 
     }
 
     // Send a value ( post id) to the parent component and open the dialog to show list of comments

@@ -10,3 +10,7 @@
 .table-container {
     margin-top: 20px;
 }
+.table-headers {
+    font-size: 12px;
+    font-weight: 600;
+}

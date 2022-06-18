@@ -17,12 +17,14 @@ export class PostsComponent implements OnInit {
 
   postsTableDataSource: MatTableDataSource<Post>;
   postsTableColumns: string[];
+  filteredValue: string;
 
   constructor( 
     private dialogService: MatDialog,
     private sharingDatService: SharingDataService,
     private postEndPointService: PostsEndPointServiceService,
-    ) { 
+    ) {
+      this.filteredValue = '',
       this.postsTableColumns = POSTS_TABLE_COLUMNS;
       this.postsTableDataSource = new MatTableDataSource<Post>([]);
     }

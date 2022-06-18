@@ -1,1 +1,8 @@
-<p>search works!</p>
+<div class="form-group">
+    <input matInput type="search" 
+    #search
+    [value]="filteredValue" 
+    (input)="filteredValueChange.emit(search.value)"
+    placeholder="Search">
+    <mat-icon matSuffix>search</mat-icon>
+</div>

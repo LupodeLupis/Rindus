@@ -7,6 +7,8 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+
 
 import { TableComponent } from "./components/table/table.component";
 import { SearchComponent } from "./components/search/search.component";
@@ -27,9 +29,9 @@ import { ButtonsComponent } from "./components/buttons/buttons.component";
     imports: [
         CommonModule,
         MatIconModule,
-
         MatSortModule,
         MatTableModule,
+        MatInputModule,
         MatDialogModule,
         HttpClientModule,
         MatPaginatorModule,
@@ -38,6 +40,7 @@ import { ButtonsComponent } from "./components/buttons/buttons.component";
         CommonModule,
         MatIconModule,
         MatSortModule,
+        MatInputModule,
         MatTableModule,
         TableComponent,
         SearchComponent,
