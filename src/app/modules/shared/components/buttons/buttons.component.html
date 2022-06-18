@@ -1,0 +1,22 @@
+<ng-container [ngSwitch]="config.action">
+    <ng-template [ngSwitchCase]="'close'">
+        
+        <div class="row justify-content-center align-items-center">
+            <div class="col" >
+                <h1 mat-dialog-title>  {{ config.text }} </h1>
+            </div>
+            <div class="col text-end ">
+                <button mat-icon-button cdkFocusInitial mat-dialog-close class="close-dialog-button">
+                    <mat-icon>{{ config.icon }}</mat-icon>
+                </button>
+            </div>
+        </div>
+        
+    </ng-template>
+    <ng-template [ngSwitchCase]="'cancel'">
+        <button mat-button mat-dialog-close class="cancel-dialog-button">{{ config.text }} </button>
+    </ng-template>
+    <ng-template ngSwitchDefault>
+        No Button Available
+    </ng-template>
+</ng-container>

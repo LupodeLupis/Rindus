@@ -2,39 +2,45 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { SharingDataService } from '../../services/sharing-data/sharing-data.service';
+import { SharingDataService } from '../../services/data-mng/sharing-data.service';
+
+/**
+ * This component is created with the intention of reusing a table created with Angular Material through the entire application. 
+ * It uses the concept of data binding with @Input decorators to receive data from parents components, sort heading and, 
+ * pagination with 5,10,20 chunck of row to be displayed. The idea is to use a generic type, in this case any , in order to handle
+ * multiple data type.
+ */
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit , OnChanges  {
+export class TableComponent implements OnInit, OnChanges {
 
-  @Input() tableDataSource!: MatTableDataSource<any>; // type should be generic if table is feed with different type of data
-  @Input() columns!: string[];
+    @Input() tableDataSource!: MatTableDataSource<any>;
+    @Input() columns!: string[];
 
-  @ViewChild(MatPaginator) matPaginator!: MatPaginator;
-  @ViewChild(MatSort) matSort!: MatSort;
+    @ViewChild(MatPaginator) matPaginator!: MatPaginator;
+    @ViewChild(MatSort) matSort!: MatSort;
 
-  constructor(
-    private sharingDataService: SharingDataService,
-  ) {}
+    constructor(
+        private sharingDataService: SharingDataService,
+    ) { }
 
-  
-  ngOnInit(): void {
 
-  }
-
-  ngOnChanges(simpleChange: SimpleChanges) {
-    if (this.tableDataSource) {
-      this.tableDataSource.sort = this.matSort;
-      this.tableDataSource.paginator = this.matPaginator;
+    ngOnInit(): void {
     }
-  }
 
-  setPostId(id: string) {
-    this.sharingDataService.setPostId(id);
-  }
+    // Once the value is set on tableDataSource @Input decorator set header sorting and pagination
+    ngOnChanges(simpleChange: SimpleChanges) {
+        if (this.tableDataSource) {
+            this.tableDataSource.sort = this.matSort;
+            this.tableDataSource.paginator = this.matPaginator;
+        }
+    }
+
+    // Send a value ( post id) to the parent component and open the dialog to show list of comments
+    setPostId(id: string) { this.sharingDataService.setPostId(id);  }
 
 }

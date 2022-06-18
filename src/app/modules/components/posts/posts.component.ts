@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { Post, POSTS_TABLE_COLUMNS } from '../../shared/models/posts';
 import { PostsEndPointServiceService } from '../../shared/services/end-point/posts-end-point.service';
-import { SharingDataService } from '../../shared/services/sharing-data/sharing-data.service';
+import { SharingDataService } from '../../shared/services/data-mng/sharing-data.service';
 import { CommentsComponent } from './dialog/comments/comments.component';
 
 @Component({
@@ -32,8 +32,9 @@ export class PostsComponent implements OnInit {
     this.getPostId$();
   }
 
-
-  getPosts() {
+  // retrieve the list of post from external server using RxJS and update the table in the child component
+  // display error message in case the call fails
+  getPosts(): void {
     this.postEndPointService.getPostsAtEndPoint().subscribe({
       next: (posts: Post[]) => this.postsTableDataSource = new MatTableDataSource<Post>(posts),
       error: (error: HttpErrorResponse) => {
@@ -42,6 +43,7 @@ export class PostsComponent implements OnInit {
     });
   }
 
+  // Open the Comments dialog to display the comments that are attached to a specific post
   openCommentsDialog(postId: string) {
     this.dialogService.open(CommentsComponent, {
       width: '1000px',
@@ -50,7 +52,12 @@ export class PostsComponent implements OnInit {
     });
   }
 
-  getPostId$() {
+  /**
+   * Listen the changes of the event when the user click 'see message' on the UI. 
+   * Receive the post id that is used to open the dialog and show the comments
+   */
+
+  getPostId$(): void {
     this.sharingDatService.getPostId$().subscribe({
       next: (id:string) => this.openCommentsDialog(id),
       error: (error: any) => {

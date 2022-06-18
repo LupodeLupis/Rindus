@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Comments Table</h1>
+    <app-buttons [config]="closeDialogConfigButton"></app-buttons>
     <div class="row">
         <div class="col-lg-12 col-md-6 col-sm-6"> 
             <app-table
@@ -7,5 +7,8 @@
                 [columns]="commentsTableComuns">
             </app-table>
         </div>
+    </div>
+    <div mat-dialog-actions class="dialog-button-action">
+        <app-buttons [config]="cancelDialogConfigButton"></app-buttons>
     </div>
 </div>

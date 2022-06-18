@@ -10,7 +10,7 @@ export class SharingDataService {
 
   constructor() { }
 
-  getPostId$(): Observable<string>{
+  getPostId$(): Observable<string> {
     return this.postId$;
   }
 

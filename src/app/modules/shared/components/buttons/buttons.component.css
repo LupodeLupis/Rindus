@@ -1,0 +1,5 @@
+.close-dialog-button, .cancel-dialog-button {
+    border: none;
+    background-color: #fff;
+    font-size: 15px;
+}

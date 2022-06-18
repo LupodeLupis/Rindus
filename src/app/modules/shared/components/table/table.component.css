@@ -1,9 +1,12 @@
-.button-open {
+.btn-open-dialog {
     border: none;
     background: #fff;
 }
-
-.button-open:hover:not([disabled]) {
+.btn-open-dialog:hover:not([disabled]) {
     font-weight: 600;
     text-decoration: underline;
+}
+
+.table-container {
+    margin-top: 20px;
 }
