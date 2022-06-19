@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+// eslint-disable-next-line no-undef
 module.exports = function (config) {
   config.set({
     basePath: '',

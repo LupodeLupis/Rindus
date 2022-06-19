@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
@@ -67,7 +68,7 @@ describe('CommentEndPointService', () => {
 
   it('should test mocking API call to external server to retrieve post list with error 404', () => {
     commentEndPointService.getCommentsByPostIdAtEndPoint(POST_ID).subscribe({
-      next: (comments: Comment[]) => {},
+      next: () => {},
       error: (error: HttpErrorResponse) => {
         expect(error.error).toEqual('Error while retrieving comments');
         expect(error.status).toEqual(404);

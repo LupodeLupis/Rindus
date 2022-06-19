@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, Input, OnInit } from '@angular/core';
 import { GenericButton } from '../../models/buttons';
 

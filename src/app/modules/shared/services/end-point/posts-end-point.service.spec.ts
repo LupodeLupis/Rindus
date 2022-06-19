@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { TestBed } from '@angular/core/testing';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { PostsEndPointServiceService } from './posts-end-point.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Post } from '../../models/posts';
-import { HttpErrorResponse } from '@angular/common/http';
 
 const POSTS: Post[] = [
   {
@@ -67,7 +69,7 @@ describe('PostsEndPointServiceService', () => {
 
   it('should test mocking API call to external server to retrieve post list with error 404', () => {
     postsEndPointServiceService.getPostsAtEndPoint().subscribe({
-      next: (post: Post[]) => {},
+      next: ( post: Post[]) => {},
       error: (error: HttpErrorResponse) => {
         expect(error.error).toEqual('Error while retrieving posts');
         expect(error.status).toEqual(404);

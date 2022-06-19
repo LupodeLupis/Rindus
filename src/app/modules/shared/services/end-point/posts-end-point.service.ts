@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -20,6 +21,6 @@ export class PostsEndPointServiceService {
         complete: () => observer.complete()
       });
     });
-  };
+  }
 
 }

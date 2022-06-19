@@ -117,7 +117,7 @@ describe('PostsComponent', () => {
   });
 
   it('should test to open the dialog to display the Comments list based on post id', () => {
-    const postId: number = 1;
+    const postId = 1;
     const spyOnDialog = spyOn(matDialog, 'open');
     component.openCommentsDialog(1);
     expect(spyOnDialog).toHaveBeenCalledWith(CommentsComponent, {

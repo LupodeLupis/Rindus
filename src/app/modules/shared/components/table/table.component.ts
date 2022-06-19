@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -30,7 +32,8 @@ export class TableComponent implements OnInit, OnChanges {
     ) { }
 
 
-    ngOnInit(): void {        
+    ngOnInit(): void {
+
     }
 
     // Once the value is set on tableDataSource @Inputs decorator set header sorting , pagination and, filter
@@ -43,7 +46,7 @@ export class TableComponent implements OnInit, OnChanges {
         } else if (tableData && tableData.currentValue) {
             this.tableDataSource.sort = this.matSort;
             this.tableDataSource.paginator = this.matPaginator;
-        };
+        }
     }
 
     // Send a value ( post id ) to the parent component and open the dialog to show list of comments

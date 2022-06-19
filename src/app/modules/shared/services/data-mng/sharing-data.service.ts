@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -12,7 +13,7 @@ export class SharingDataService {
 
   getPostId$() {
     return this.postId$.asObservable();
-  };
+  }
 
   notifyPostId$(postId: number) {
     this.postId$.next(postId);
