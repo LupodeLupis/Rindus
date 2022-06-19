@@ -1,9 +1,5 @@
 <div class="search-input-container">
-    <input matInput 
-    #search
-    type="search" 
-    [value]="filteredValue" 
-    (input)="filteredValueChange.emit(search.value)"
+  <input matInput #search type="search" [value]="filteredValue" (input)="filteredValueChange.emit(search.value)"
     placeholder="Search">
-    <mat-icon matSuffix>search</mat-icon>
+  <mat-icon matSuffix>search</mat-icon>
 </div>

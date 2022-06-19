@@ -1,9 +1,9 @@
 <div class="errors-message-container" *ngIf="errorMessage">
-    <mat-icon class="icon-error">error_outline</mat-icon>
-    <p>{{ errorMessage }}</p>
-    <div>
-        <button cdkFocusInitial mat-icon-button (click)="snackBarRef.dismiss()">
-            <mat-icon>clear</mat-icon>
-        </button>
-    </div>
+  <mat-icon class="icon-error">error_outline</mat-icon>
+  <p>{{ errorMessage }}</p>
+  <div>
+    <button cdkFocusInitial mat-icon-button (click)="snackBarRef.dismiss()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
 </div>
