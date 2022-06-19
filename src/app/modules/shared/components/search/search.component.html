@@ -1,6 +1,7 @@
-<div class="form-group">
-    <input matInput type="search" 
+<div class="search-input-container">
+    <input matInput 
     #search
+    type="search" 
     [value]="filteredValue" 
     (input)="filteredValueChange.emit(search.value)"
     placeholder="Search">

@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { TableComponent } from "./components/table/table.component";
@@ -21,7 +22,6 @@ import { ButtonsComponent } from "./components/buttons/buttons.component";
 
 @NgModule({
     declarations: [
-        
         TableComponent,
         SearchComponent,
         ButtonsComponent,
@@ -34,6 +34,7 @@ import { ButtonsComponent } from "./components/buttons/buttons.component";
         MatInputModule,
         MatDialogModule,
         HttpClientModule,
+        MatSnackBarModule,
         MatPaginatorModule,
     ],
     exports: [
@@ -47,6 +48,7 @@ import { ButtonsComponent } from "./components/buttons/buttons.component";
         MatDialogModule,
         ButtonsComponent,
         HttpClientModule,
+        MatSnackBarModule,
         MatPaginatorModule,
     ],      
     providers: [

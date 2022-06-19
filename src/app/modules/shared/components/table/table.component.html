@@ -4,7 +4,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-headers"> {{ col | titlecase }}</th>
                 <td mat-cell *matCellDef="let row" > 
                     <ng-container *ngIf="col === 'comments'; else readOnlyCols">
-                        <button (click)="setPostId(row.id)" class="btn-open-dialog"> See Comments</button>
+                        <button (click)="setPostId(row.id)" class="table-open-btn"> See Comments</button>
                     </ng-container>
                     <ng-template #readOnlyCols>
                         {{ row[col] }} 

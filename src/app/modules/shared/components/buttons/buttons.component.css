@@ -1,5 +1,6 @@
-.close-dialog-button, .cancel-dialog-button {
-    border: none;
-    background-color: #fff;
-    font-size: 15px;
+h2 {
+    margin-bottom: 0;
+}
+.row {
+    padding-bottom: 15px;
 }

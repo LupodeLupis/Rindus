@@ -48,9 +48,7 @@ export class CommentsComponent implements OnInit {
     getPostMessage() {
         this.commentEndPointService.getMessageByPostIdAtEndPoint(this.postId).subscribe({
             next: (comments: Comment[]) => this.commentsTableDataSource = new MatTableDataSource<Comment>(comments),
-            error: (error: HttpErrorResponse) => {
-                console.log('Error while retriving comments', error)
-            }
+            error: (error: HttpErrorResponse) => this.commonUtilitiesService.displayErrorMessage(error.message, error.status)
         });
     }
 

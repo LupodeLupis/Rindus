@@ -2,11 +2,11 @@
     <ng-template [ngSwitchCase]="'close'">
         
         <div class="row justify-content-center align-items-center">
-            <div class="col" >
-                <h1 mat-dialog-title>  {{ config.text }} </h1>
+            <div class="col">
+                <h2 mat-dialog-title>  {{ config.text }} </h2>
             </div>
-            <div class="col text-end ">
-                <button mat-icon-button cdkFocusInitial mat-dialog-close class="close-dialog-button">
+            <div class="col text-end">
+                <button mat-icon-button cdkFocusInitial mat-dialog-close class="buttons-close-btn">
                     <mat-icon>{{ config.icon }}</mat-icon>
                 </button>
             </div>
@@ -14,7 +14,7 @@
         
     </ng-template>
     <ng-template [ngSwitchCase]="'cancel'">
-        <button mat-button mat-dialog-close class="cancel-dialog-button">{{ config.text }} </button>
+        <button mat-button mat-dialog-close class="buttons-cancel-btn">{{ config.text }} </button>
     </ng-template>
     <ng-template ngSwitchDefault>
         No Button Available

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ErrorsComponent } from '../../components/errors/errors.component';
 import { GenericButton } from '../../models/buttons';
 
 @Injectable({
@@ -6,7 +8,9 @@ import { GenericButton } from '../../models/buttons';
 })
 export class CommonService {
 
-    constructor() { }
+    constructor(
+        private snackBarService: MatSnackBar
+    ) { }
 
     initializeCancelConfigButton(): GenericButton {
         return { action: 'cancel', text: 'Cancel'  };
@@ -18,6 +22,12 @@ export class CommonService {
             text,
             icon: 'close'
         };
+    }
+
+    displayErrorMessage(errorMessage: string , status?: number) {
+        this.snackBarService.openFromComponent(ErrorsComponent, {
+            data: `${ errorMessage } [ status: ${ status } ]`
+        })
     }
 
 }

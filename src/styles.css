@@ -2,3 +2,149 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+h1 {
+    font-size: 35px !important;
+}
+
+h2 {
+    font-size: 25px !important;
+}
+
+/*
+Third party library
+*/
+.mat-snack-bar-container {
+    max-width: unset !important;
+}
+
+/*
+Buttons Component
+*/
+.buttons-close-btn , .buttons-cancel-btn {
+    border: none;
+    background-color: #fff;
+    font-size: 15px;
+}
+
+/*
+Errors Component
+*/
+.errors-message-container {
+    line-height: 7px;
+}
+
+.errors-message-container .mat-icon {
+    color: #FF0000;
+}
+
+.errors-message-container p {
+    display: inline;
+    position: relative;
+    bottom: 6px;
+    color: #FF0000;
+    font-size: 17px;
+    padding-left: 12px;
+}
+
+.errors-message-container div {
+    display: inline;
+    float: right;   
+}
+
+.errors-message-container div button {
+    background: transparent;
+    border: none;
+}
+
+.errors-message-container div button .mat-icon {
+    color: #fff;
+}
+
+/*
+Search Component
+*/
+
+.search-input-container {
+    float: right;
+    position: relative;
+}
+
+.search-input-container input {
+    height: 30px;
+    max-width: 150px;
+    border: 1px solid #000;
+    padding: 0 0 0 6px; 
+}
+
+.search-input-container .mat-icon {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+}
+
+/*
+Table Container
+*/
+
+.table-container {
+    margin-top: 20px;
+}
+
+.table-container .table-headers {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.table-container .table-open-btn {
+    border: none;
+    background: #fff;
+}
+
+.table-container .table-open-btn:hover:not([disabled]) {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+/*
+Comments Component
+*/
+
+.dialog-buttons-action-container {
+    float: right;    
+}
+
+/*
+Dashboard Component
+*/
+
+.container-fluid {
+    height: 100%;
+    background-color: #4dd599;
+}
+
+.container-fluid .dashboard-link-button {
+    border: none;
+    background: #fff;
+    font-size: 16px;
+}
+
+.container-fluid .dashboard-link-button:hover:not([disabled]) {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.container-fluid .dashboard-content-container {
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+

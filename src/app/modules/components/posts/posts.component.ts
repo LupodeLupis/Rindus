@@ -7,6 +7,7 @@ import { Post, POSTS_TABLE_COLUMNS } from '../../shared/models/posts';
 import { PostsEndPointServiceService } from '../../shared/services/end-point/posts-end-point.service';
 import { SharingDataService } from '../../shared/services/data-mng/sharing-data.service';
 import { CommentsComponent } from './dialog/comments/comments.component';
+import { CommonService } from '../../shared/services/common/common.service';
 
 @Component({
   selector: 'app-posts',
@@ -19,8 +20,9 @@ export class PostsComponent implements OnInit {
   postsTableColumns: string[];
   filteredValue: string;
 
-  constructor( 
+  constructor(
     private dialogService: MatDialog,
+    private commonUtilities: CommonService,
     private sharingDatService: SharingDataService,
     private postEndPointService: PostsEndPointServiceService,
     ) {
@@ -39,9 +41,7 @@ export class PostsComponent implements OnInit {
   getPosts(): void {
     this.postEndPointService.getPostsAtEndPoint().subscribe({
       next: (posts: Post[]) => this.postsTableDataSource = new MatTableDataSource<Post>(posts),
-      error: (error: HttpErrorResponse) => {
-        console.log('Error..', error)
-      }
+      error: (error: HttpErrorResponse) => this.commonUtilities.displayErrorMessage(error.message, error.status),
     });
   }
 
@@ -58,13 +58,10 @@ export class PostsComponent implements OnInit {
    * Listen the changes of the event when the user click 'see message' on the UI. 
    * Receive the post id that is used to open the dialog and show the comments
    */
-
   getPostId$(): void {
     this.sharingDatService.getPostId$().subscribe({
       next: (id:string) => this.openCommentsDialog(id),
-      error: (error: any) => {
-        console.log('error')  
-      }
+      error: (error: any) => this.commonUtilities.displayErrorMessage('Error while retrieving post id'),
     });
   }
 
