@@ -6,15 +6,15 @@ import { Observable } from 'rxjs';
 })
 export class SharingDataService {
 
-  private postId$: EventEmitter<string> = new EventEmitter<string>();
+  private postId$: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
-  getPostId$(): Observable<string> {
+  getPostId$(): Observable<number> {
     return this.postId$;
   }
 
-  setPostId(id: string) {
+  setPostId(id: number) {
     this.postId$.emit(id);
   }
 }

@@ -14,12 +14,14 @@ import { CommonService } from '../../../../shared/services/common/common.service
     styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-
-    commentsTableDataSource!: MatTableDataSource<Comment>;
+    
+    
+    filteredValue: string;
     commentsTableComuns: string[];
     closeDialogConfigButton: GenericButton;
     cancelDialogConfigButton: GenericButton;
-    filteredValue: string;
+    commentsTableDataSource!: MatTableDataSource<Comment>;
+
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public postId: string,
@@ -35,7 +37,7 @@ export class CommentsComponent implements OnInit {
 
 
     ngOnInit(): void {
-        this.getPostMessage();
+        this.getPostComments();
     }
 
     // Close the dialog by pressing ESC
@@ -45,8 +47,8 @@ export class CommentsComponent implements OnInit {
 
     // retrieve the list of post from external server using RxJS and update the table in the child component
     // display error message in case the call fails
-    getPostMessage() {
-        this.commentEndPointService.getMessageByPostIdAtEndPoint(this.postId).subscribe({
+    getPostComments() {
+        this.commentEndPointService.getCommentsByPostIdAtEndPoint(this.postId).subscribe({
             next: (comments: Comment[]) => this.commentsTableDataSource = new MatTableDataSource<Comment>(comments),
             error: (error: HttpErrorResponse) => this.commonUtilitiesService.displayErrorMessage(error.message, error.status)
         });

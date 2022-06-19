@@ -23,7 +23,7 @@ export class PostsComponent implements OnInit {
   constructor(
     private dialogService: MatDialog,
     private commonUtilities: CommonService,
-    private sharingDatService: SharingDataService,
+    private sharingDataService: SharingDataService,
     private postEndPointService: PostsEndPointServiceService,
     ) {
       this.filteredValue = '',
@@ -46,7 +46,7 @@ export class PostsComponent implements OnInit {
   }
 
   // Open the Comments dialog to display the comments that are attached to a specific post
-  openCommentsDialog(postId: string) {
+  openCommentsDialog(postId: number) {
     this.dialogService.open(CommentsComponent, {
       width: '1000px',
       disableClose: true,
@@ -59,9 +59,10 @@ export class PostsComponent implements OnInit {
    * Receive the post id that is used to open the dialog and show the comments
    */
   getPostId$(): void {
-    this.sharingDatService.getPostId$().subscribe({
-      next: (id:string) => this.openCommentsDialog(id),
+    this.sharingDataService.getPostId$().subscribe({
+      next: (id:number) => this.openCommentsDialog(id),
       error: (error: any) => this.commonUtilities.displayErrorMessage('Error while retrieving post id'),
+      complete: () => {}
     });
   }
 
