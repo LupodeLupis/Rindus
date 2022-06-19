@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '../../shared.modules';
 
 import { SearchComponent } from './search.component';
 
@@ -8,7 +9,10 @@ describe('SearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
+      declarations: [ SearchComponent ],
+      imports: [
+        SharedModule
+      ]
     })
     .compileComponents();
 

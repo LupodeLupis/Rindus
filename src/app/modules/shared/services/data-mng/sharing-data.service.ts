@@ -11,7 +11,7 @@ export class SharingDataService {
   constructor() { }
 
   getPostId$(): Observable<number> {
-    return this.postId$;
+    return this.postId$.asObservable();
   }
 
   setPostId(id: number) {

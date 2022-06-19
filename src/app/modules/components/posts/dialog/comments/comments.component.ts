@@ -24,7 +24,7 @@ export class CommentsComponent implements OnInit {
 
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) public postId: string,
+        @Inject(MAT_DIALOG_DATA) public postId: number,
         private commonUtilitiesService: CommonService,
         private dialogRef: MatDialogRef<CommentsComponent>,
         private commentEndPointService: CommentEndPointService,

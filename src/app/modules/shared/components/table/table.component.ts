@@ -33,17 +33,20 @@ export class TableComponent implements OnInit, OnChanges {
     ngOnInit(): void {        
     }
 
-    // Once the value is set on tableDataSource @Input decorator set header sorting and pagination
+    // Once the value is set on tableDataSource @Inputs decorator set header sorting , pagination and, filter
     ngOnChanges(simpleChange: SimpleChanges) {
 
-        if (this.tableDataSource) {
+        const filter = simpleChange['filteredValue'];
+        const tableData = simpleChange['tableDataSource'];
+        if (filter && filter.currentValue) {
+            this.tableDataSource.filter = filter.currentValue.toLowerCase();
+        } else if (tableData && tableData.currentValue) {
             this.tableDataSource.sort = this.matSort;
             this.tableDataSource.paginator = this.matPaginator;
-            this.tableDataSource.filter = this.filteredValue.toLowerCase();
-        } 
+        };
     }
 
-    // Send a value ( post id) to the parent component and open the dialog to show list of comments
+    // Send a value ( post id ) to the parent component and open the dialog to show list of comments
     setPostId(id: number) { this.sharingDataService.setPostId(id);  }
 
 }

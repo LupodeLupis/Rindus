@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { SharedModule } from '../../shared.modules';
 
 import { ErrorsComponent } from './errors.component';
 
@@ -8,7 +10,14 @@ describe('ErrorsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorsComponent ]
+      declarations: [ ErrorsComponent ],
+      imports: [
+        SharedModule
+      ],
+      providers: [
+        { provide: MAT_SNACK_BAR_DATA, useValue: 'Error message' },
+        { provide: MatSnackBarRef, useValue: {} }
+      ],
     })
     .compileComponents();
 
