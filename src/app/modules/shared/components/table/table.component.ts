@@ -47,6 +47,6 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     // Send a value ( post id ) to the parent component and open the dialog to show list of comments
-    setPostId(id: number) { this.sharingDataService.setPostId(id);  }
+    setPostId(id: number) {  this.sharingDataService.notifyPostId$(id); }
 
 }

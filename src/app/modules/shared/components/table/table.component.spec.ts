@@ -64,9 +64,9 @@ describe('TableComponent', () => {
 
   it('should test on set the post id', () => {
     const postId = 1;
-    spyOn(sharingDataService, 'setPostId');
+    spyOn(sharingDataService, 'notifyPostId$');
     component.setPostId(postId);
-    expect(sharingDataService.setPostId).toHaveBeenCalledWith(postId);
+    expect(sharingDataService.notifyPostId$).toHaveBeenCalledWith(postId);
   });
 
   it('should test in initilize table data, sorting and pagination', () => {

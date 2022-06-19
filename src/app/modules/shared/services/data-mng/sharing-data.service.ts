@@ -1,20 +1,21 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharingDataService {
 
-  private postId$: EventEmitter<number> = new EventEmitter<number>();
+  private postId$ = new Subject<number>();
 
   constructor() { }
 
-  getPostId$(): Observable<number> {
+  getPostId$() {
     return this.postId$.asObservable();
+  };
+
+  notifyPostId$(postId: number) {
+    this.postId$.next(postId);
   }
 
-  setPostId(id: number) {
-    this.postId$.emit(id);
-  }
 }

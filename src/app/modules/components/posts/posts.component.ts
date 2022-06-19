@@ -60,10 +60,9 @@ export class PostsComponent implements OnInit {
    */
   getPostId$(): void {
     this.sharingDataService.getPostId$().subscribe({
-      next: (id:number) => this.openCommentsDialog(id),
-      error: (error: any) => this.commonUtilities.displayErrorMessage('Error while retrieving post id'),
-      complete: () => {}
-    });
+      next: (id: number) => this.openCommentsDialog(id),
+      error: (error: any) => this.commonUtilities.displayErrorMessage('Error while retrieving post id')
+    })
   }
 
 }
