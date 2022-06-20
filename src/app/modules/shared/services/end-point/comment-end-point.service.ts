@@ -16,8 +16,8 @@ export class CommentEndPointService {
 
   getCommentsByPostIdAtEndPoint(postid: number): Observable<Comment[]> {
     return new Observable((observer: Observer<Comment[]> ) => {
-      this.http.get(`https://jsonplaceholder.typicode.com/posts/${postid}/comments`).subscribe({
-        next: (response: any) => observer.next(response),
+      this.http.get<Comment[]>(`https://jsonplaceholder.typicode.com/posts/${postid}/comments`).subscribe({
+        next: (response: Comment[]) => observer.next(response),
         error: (error: HttpErrorResponse) => observer.error(error),
         complete: () => observer.complete()
       });

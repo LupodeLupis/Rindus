@@ -15,8 +15,8 @@ export class PostsEndPointServiceService {
 
   getPostsAtEndPoint(): Observable<Post[]> {
     return new Observable((observer: Observer<Post[]> ) => {
-      this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe({
-        next: (response: any) => observer.next(response),
+      this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts').subscribe({
+        next: (response: Post[]) => observer.next(response),
         error: (error: HttpErrorResponse) => observer.error(error),
         complete: () => observer.complete()
       });
